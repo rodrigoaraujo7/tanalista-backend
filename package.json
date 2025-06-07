@@ -1,0 +1,30 @@
+{
+  "name": "shopping-list",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000s\u0000h\u0000o\u0000p\u0000p\u0000i\u0000n\u0000g\u0000-\u0000l\u0000i\u0000s\u0000t\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigoaraujo7/shopping-list-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rodrigoaraujo7/shopping-list-backend/issues"
+  },
+  "homepage": "https://github.com/rodrigoaraujo7/shopping-list-backend#readme",
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "fastify": "^5.3.3",
+    "tsx": "^4.19.4"
+  }
+}
