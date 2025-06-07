@@ -4,15 +4,16 @@ import {
   FastifyRequest,
   FastifyReply,
 } from "fastify";
+import { CreateFolderController } from "./controllers/CreateFolderController";
 
 export async function routes(
   fastify: FastifyInstance,
   options: FastifyPluginOptions
 ) {
-  fastify.get(
-    "/teste",
+  fastify.post(
+    "/folder",
     async (request: FastifyRequest, reply: FastifyReply) => {
-      return { ok: true };
+      return new CreateFolderController().handle(request, reply);
     }
   );
 }

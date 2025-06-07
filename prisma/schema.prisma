@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  // output   = "../generated/prisma"
 }
 
 datasource db {
@@ -17,7 +17,7 @@ datasource db {
 model Folder {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   title       String
-  description String
+  description String?
   items       Item[]
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
@@ -28,9 +28,9 @@ model Folder {
 model Item {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   name        String
-  checked     Boolean @default(false)
-  folderId    String   @db.ObjectId
-  folder      Folder  @relation(fields: [folderId], references: [id])
+  checked     Boolean   @default(false)
+  folderId    String    @db.ObjectId
+  folder      Folder    @relation(fields: [folderId], references: [id])
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
 
