@@ -10,22 +10,24 @@ import { ListFoldersController } from "./controllers/ListFoldersController";
 import { DeleteFolderController } from "./controllers/DeleteFolderController";
 import { UpdateFolderController } from "./controllers/UpdateFolderController";
 import { CreateItemController } from "./controllers/CreateItemController";
+import { DeleteItemController } from "./controllers/DeleteItemController";
 
 export async function routes(
   fastify: FastifyInstance,
   options: FastifyPluginOptions
 ) {
-  fastify.post(
-    "/folder",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      return new CreateFolderController().handle(request, reply);
-    }
-  );
-
+  // folders routes
   fastify.get(
     "/folders",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new ListFoldersController().handle(request, reply);
+    }
+  );
+
+  fastify.post(
+    "/folder",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new CreateFolderController().handle(request, reply);
     }
   );
 
@@ -43,10 +45,18 @@ export async function routes(
     }
   );
 
+  // items routes
   fastify.post(
     "/item",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new CreateItemController().handle(request, reply);
+    }
+  );
+
+  fastify.delete(
+    "/item",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new DeleteItemController().handle(request, reply);
     }
   );
 }

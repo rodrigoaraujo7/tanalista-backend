@@ -3,7 +3,7 @@ import prismaClient from "../prisma";
 class DeleteFolderService {
   async execute({ id }: { id: string }) {
     if (!id) {
-      throw new Error("Invalid request");
+      throw new Error("Folder ID is required");
     }
 
     const findFolder = await prismaClient.folder.findFirst({
