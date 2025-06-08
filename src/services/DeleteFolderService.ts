@@ -14,6 +14,12 @@ class DeleteFolderService {
       throw new Error("Invalid ID");
     }
 
+    await prismaClient.item.deleteMany({
+      where: {
+        folderId: findFolder.id,
+      },
+    });
+
     await prismaClient.folder.delete({
       where: {
         id: findFolder.id,
