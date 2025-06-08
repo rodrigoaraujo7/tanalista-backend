@@ -11,6 +11,7 @@ import { DeleteFolderController } from "./controllers/DeleteFolderController";
 import { UpdateFolderController } from "./controllers/UpdateFolderController";
 import { CreateItemController } from "./controllers/CreateItemController";
 import { DeleteItemController } from "./controllers/DeleteItemController";
+import { UpdateItemController } from "./controllers/UpdateItemController";
 
 export async function routes(
   fastify: FastifyInstance,
@@ -59,4 +60,8 @@ export async function routes(
       return new DeleteItemController().handle(request, reply);
     }
   );
+
+  fastify.put("/item", async (request: FastifyRequest, reply: FastifyReply) => {
+    return new UpdateItemController().handle(request, reply);
+  });
 }
