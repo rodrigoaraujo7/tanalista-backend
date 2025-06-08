@@ -8,6 +8,7 @@ import {
 import { CreateFolderController } from "./controllers/CreateFolderController";
 import { ListFoldersController } from "./controllers/ListFoldersController";
 import { DeleteFolderController } from "./controllers/DeleteFolderController";
+import { CreateItemController } from "./controllers/CreateItemController";
 
 export async function routes(
   fastify: FastifyInstance,
@@ -31,6 +32,13 @@ export async function routes(
     "/folder",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new DeleteFolderController().handle(request, reply);
+    }
+  );
+
+  fastify.post(
+    "/item",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new CreateItemController().handle(request, reply);
     }
   );
 }
