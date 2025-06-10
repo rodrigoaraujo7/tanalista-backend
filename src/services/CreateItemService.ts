@@ -12,6 +12,7 @@ class CreateItemService {
         name: props.name,
         folderId: props.folderId,
         checked: props.checked ?? false,
+        link: props.link ?? null,
       },
       include: {
         folder: true,

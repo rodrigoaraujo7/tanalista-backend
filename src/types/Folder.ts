@@ -9,4 +9,5 @@ export interface Item {
   checked?: boolean;
   folderId: string;
   folder: Folder;
+  link?: string;
 }

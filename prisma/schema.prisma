@@ -29,6 +29,7 @@ model Item {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   checked     Boolean   @default(false)
+  link        String?
   folderId    String    @db.ObjectId
   folder      Folder    @relation(fields: [folderId], references: [id])
   created_at  DateTime? @default(now())

@@ -4,7 +4,7 @@ import { Item } from "../types/Folder";
 
 class CreateItemController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
-    const { name, folderId, folder, checked } = request.body as Item;
+    const { name, folderId, folder, checked, link } = request.body as Item;
 
     const createItemService = new CreateItemService();
     const item = await createItemService.execute({
@@ -12,6 +12,7 @@ class CreateItemController {
       folderId,
       folder,
       checked,
+      link,
     });
 
     reply.status(201).send(item);
