@@ -6,6 +6,7 @@ import {
 } from "fastify";
 
 import { CreateListController } from "./controllers/CreateListController";
+import { ListListsController } from "./controllers/ListListsController";
 import { CreateFolderController } from "./controllers/CreateFolderController";
 import { ListFoldersController } from "./controllers/ListFoldersController";
 import { DeleteFolderController } from "./controllers/DeleteFolderController";
@@ -19,6 +20,13 @@ export async function routes(
   options: FastifyPluginOptions
 ) {
   // list routes
+  fastify.get(
+    "/lists",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new ListListsController().handle(request, reply);
+    }
+  );
+
   fastify.post(
     "/list",
     async (request: FastifyRequest, reply: FastifyReply) => {
