@@ -16,9 +16,6 @@ class ListFoldersService {
       where: {
         listId: list.id,
       },
-      include: {
-        items: true,
-      },
     });
 
     return folders;
