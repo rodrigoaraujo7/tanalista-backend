@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   // output   = "../generated/prisma"
@@ -14,11 +8,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model List {
+  id         String    @id @map("_id")
+  title      String
+  folders    Folder[]
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("lists")
+}
+
 model Folder {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String?
   items       Item[]
+  listId      String
+  list        List      @relation(fields: [listId], references: [id])
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
 
@@ -26,14 +32,14 @@ model Folder {
 }
 
 model Item {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  checked     Boolean   @default(false)
-  link        String?
-  folderId    String    @db.ObjectId
-  folder      Folder    @relation(fields: [folderId], references: [id])
-  created_at  DateTime? @default(now())
-  updated_at  DateTime? @default(now())
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  checked    Boolean   @default(false)
+  link       String?
+  folderId   String    @db.ObjectId
+  folder     Folder    @relation(fields: [folderId], references: [id])
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
 
   @@map("items")
 }

@@ -1,3 +1,9 @@
+export interface List {
+  id: string;
+  title: string;
+  folders: Folder[];
+}
+
 export interface Folder {
   title: string;
   description?: string;
