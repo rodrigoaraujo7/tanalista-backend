@@ -11,6 +11,7 @@ class CreateFolderService {
       data: {
         title: props.title,
         description: props.description,
+        listId: props.listId,
       },
     });
 

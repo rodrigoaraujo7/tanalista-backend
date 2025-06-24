@@ -3,9 +3,11 @@ import { ListFoldersService } from "../services/ListFoldersService";
 
 class ListFoldersController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
+    const { listId } = request.query as { listId: string };
+
     const listFoldersService = new ListFoldersService();
 
-    const folders = await listFoldersService.execute();
+    const folders = await listFoldersService.execute(listId);
 
     reply.send(folders);
   }

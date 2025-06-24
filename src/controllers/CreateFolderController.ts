@@ -4,7 +4,7 @@ import { Folder } from "../types/Folder";
 
 class CreateFolderController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
-    const { title, description, items } = request.body as Folder;
+    const { title, description, items, listId, list } = request.body as Folder;
 
     const folderService = new CreateFolderService();
 
@@ -12,6 +12,8 @@ class CreateFolderController {
       title,
       description,
       items,
+      listId,
+      list,
     });
 
     reply.send(folder);

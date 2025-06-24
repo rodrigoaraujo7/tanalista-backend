@@ -7,6 +7,8 @@ export interface List {
 export interface Folder {
   title: string;
   description?: string;
+  listId: string;
+  list: List;
   items: Item[];
 }
 
