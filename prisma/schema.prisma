@@ -10,7 +10,6 @@ datasource db {
 
 model List {
   id         String    @id @map("_id")
-  title      String
   folders    Folder[]
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
