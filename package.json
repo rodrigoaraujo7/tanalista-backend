@@ -1,5 +1,5 @@
 {
-  "name": "shopping-list",
+  "name": "tanalista-backend",
   "version": "1.0.0",
   "description": "Shopping list back-end",
   "main": "index.js",
@@ -11,16 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodrigoaraujo7/shopping-list-backend.git"
+    "url": "git+https://github.com/rodrigoaraujo7/tanalista-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/rodrigoaraujo7/shopping-list-backend/issues"
+    "url": "https://github.com/rodrigoaraujo7/tanalista-backend/issues"
   },
-  "homepage": "https://github.com/rodrigoaraujo7/shopping-list-backend#readme",
+  "homepage": "https://github.com/rodrigoaraujo7/tanalista-backend#readme",
   "devDependencies": {
     "@types/node": "^22.15.30",
     "prisma": "^6.10.1",
